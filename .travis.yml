@@ -1,5 +1,5 @@
 language: java
 jdk: oraclejdk8
 script:
-  ./mvn spring-boot:package
+  - ./mvnw spring-boot:package
   
