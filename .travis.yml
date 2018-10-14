@@ -2,5 +2,5 @@ language: java
 jdk: oraclejdk8
 install: true
 script:
-  - ./mvnw spring-boot:package
+  - ./mvn spring-boot:package
   
