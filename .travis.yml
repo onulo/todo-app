@@ -12,6 +12,6 @@ services:
   
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker build -t todo-app .
-- docker push todo-app
+- docker build onulo/todo-app .
+- docker push onulo/todo-app
  
