@@ -17,4 +17,4 @@ after_success:
 - export IMAGE_NAME=onulo/todo-app
 - docker build -t $IMAGE_NAME:$COMMIT .
 - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-- docker push $IMAGE_NAME
+- docker push $IMAGE_NAME:$TAG
