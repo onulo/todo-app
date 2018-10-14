@@ -12,6 +12,8 @@ services:
   
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASS
-- docker build onulo/todo-app .
-- docker push onulo/todo-app
- 
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- export IMAGE_NAME=onulo/todo-app
+- docker build -t $IMAGE_NAME:$COMMIT .
+- docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
+- docker push $IMAGE_NAME
