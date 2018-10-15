@@ -5,7 +5,17 @@
 <title>Todo App</title>
 </head>
 <body>
-	<span th:text="${message}"></span>
+
+	<table>
+		<th:block th:each="todo : ${todos}">
+			<tr>
+				<td th:text="${todo.description}">...</td>
+				<td><a th:href="@{/delete(id=${todo.id})}">DELETE</a></td>
+			</tr>
+			
+		</th:block>
+	</table>
+
 </body>
 </html>
 
