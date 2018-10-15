@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class Todo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	private String description;
 	@CreationTimestamp

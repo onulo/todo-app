@@ -2,22 +2,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
 <title>Todo App</title>
 </head>
 <body>
+	<div class="mainWrapper">
+		<div class="headerContainer">
+			<div>
+				<h2>To be done..</h2>
+			</div>
+		</div>
 
-	<table>
-		<th:block th:each="todo : ${todos}">
-			<tr>
-				<td th:text="${todo.description}">...</td>
-				<td><a th:href="@{/delete(id=${todo.id})}">DELETE</a></td>
-			</tr>
-			
-		</th:block>
-	</table>
+
+		<div class="listContainer">
+			<th:block th:each="todo : ${todos}">
+				<div class="listItemContainer">
+					<div th:text="${todo.description}"></div>
+					<div>
+						<a th:href="@{/delete(id=${todo.id})}">x</a>
+					</div>
+				</div>
+			</th:block>
+		</div>
+
+
+		<div class="addTodoContainer">
+				<form method="POST" th:action="@{/}" th:object="${todo}">
+					<div class="descriptionContainer">
+						<div>
+							<label for="description">Description: </label>
+						</div>
+						<div>
+							<input type="text" th:field="*{description}" />
+						</div>
+					</div>
+					<div class="submitContainer">
+						<input type="submit" value="Submit todo" />
+					</div>
+				</form>
+
+		</div>
+
+
+	</div>
 
 </body>
 </html>
+
+
+
+
+
+
 
 
 
