@@ -20,7 +20,7 @@
 				<div class="listItemContainer">
 					<div th:text="${todo.description}"></div>
 					<div>
-						<a th:href="@{/delete(id=${todo.id})}">x</a>
+						<a th:href="@{/todo/delete(id=${todo.id})}">x</a>
 					</div>
 				</div>
 			</th:block>
@@ -28,7 +28,7 @@
 
 
 		<div class="addTodoContainer">
-				<form method="POST" th:action="@{/}" th:object="${todo}">
+				<form method="POST" th:action="@{/todo}" th:object="${todo}">
 					<div class="descriptionContainer">
 						<div>
 							<label for="description">Description: </label>

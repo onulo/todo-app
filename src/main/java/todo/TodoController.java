@@ -10,15 +10,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
 @Controller
-@RequestMapping("/")
-@SessionAttributes("todo")
+@RequestMapping("/todo")
 public class TodoController {
 	
 	@Autowired
@@ -37,14 +35,14 @@ public class TodoController {
 	public String deleteTodo(@RequestParam(name="id") String id){
 		Todo todo = todoRepo.findById(Long.valueOf(id)).get();
 		todoRepo.delete(todo);
-		return "redirect:/";
+		return "redirect:/todo";
 	}
 	
 	@PostMapping
 	public String createNewTodo(@ModelAttribute Todo todo) {
 		Todo createdTodo = todoRepo.save(todo);
 		log.info("New TODO created: " + createdTodo);
-		return "redirect:/";
+		return "redirect:/todo";
 	}
 	
 
