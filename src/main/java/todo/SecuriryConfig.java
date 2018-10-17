@@ -26,12 +26,14 @@ public class SecuriryConfig extends WebSecurityConfigurerAdapter {
 	          	.antMatchers("/todo/**").authenticated()
 	          	.antMatchers("/login").permitAll()
 	          .and()
-	          	.formLogin().loginPage("/login").defaultSuccessUrl("/todo");
+	          	.formLogin().loginPage("/login").defaultSuccessUrl("/todo")
+	          .and()
+	          	.csrf().disable();
 	    }
 	
 	@Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+	
 }
